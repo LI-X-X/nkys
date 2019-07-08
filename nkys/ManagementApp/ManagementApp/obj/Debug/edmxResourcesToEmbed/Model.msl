@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="managementModelStoreContainer" CdmEntityContainer="managementEntities">
+    <EntitySetMapping Name="Altelier">
+      <EntityTypeMapping TypeName="managementModel.Altelier">
+        <MappingFragment StoreEntitySet="Altelier">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="AlterlierName" ColumnName="AlterlierName" />
+          <ScalarProperty Name="Propotion" ColumnName="Propotion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="managementModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="IsWorkingAltelier" ColumnName="IsWorkingAltelier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="managementModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdAltelier" ColumnName="IdAltelier" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="Dorm" ColumnName="Dorm" />
+          <ScalarProperty Name="SecuSocial" ColumnName="SecuSocial" />
+          <ScalarProperty Name="HouseAccumulation" ColumnName="HouseAccumulation" />
+          <ScalarProperty Name="ExperiencedOfficial" ColumnName="ExperiencedOfficial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExternalFee">
+      <EntityTypeMapping TypeName="managementModel.ExternalFee">
+        <MappingFragment StoreEntitySet="ExternalFee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SalaryId" ColumnName="SalaryId" />
+          <ScalarProperty Name="DormFee" ColumnName="DormFee" />
+          <ScalarProperty Name="Reduction" ColumnName="Reduction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Revenue">
+      <EntityTypeMapping TypeName="managementModel.Revenue">
+        <MappingFragment StoreEntitySet="Revenue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Revenue1" ColumnName="Revenue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salary">
+      <EntityTypeMapping TypeName="managementModel.Salary">
+        <MappingFragment StoreEntitySet="Salary">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="DayWorkingTime" ColumnName="DayWorkingTime" />
+          <ScalarProperty Name="NightWorkingTime" ColumnName="NightWorkingTime" />
+          <ScalarProperty Name="HolidayWorkingTime" ColumnName="HolidayWorkingTime" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="FixSalary" ColumnName="FixSalary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

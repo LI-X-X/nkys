@@ -1,0 +1,15 @@
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\bin\Debug\ManagementApp.exe.config
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\bin\Debug\ManagementApp.exe
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\bin\Debug\ManagementApp.pdb
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\bin\Debug\EntityFramework.dll
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\bin\Debug\EntityFramework.xml
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\obj\Debug\ManagementApp.csprojAssemblyReference.cache
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\obj\Debug\ManagementApp.Form1.resources
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\obj\Debug\ManagementApp.Properties.Resources.resources
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\obj\Debug\ManagementApp.csproj.GenerateResource.cache
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\obj\Debug\ManagementApp.csproj.CoreCompileInputs.cache
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\obj\Debug\ManagementApp.csproj.CopyComplete
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\obj\Debug\ManagementApp.exe
+C:\Users\Martin\nkys\nkys\ManagementApp\ManagementApp\obj\Debug\ManagementApp.pdb

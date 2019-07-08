@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="managementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Altelier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="AlterlierName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Propotion" Type="Double" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Altelier_Department" FromRole="Altelier" ToRole="Department" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Altelier" FromRole="Altelier" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="IsWorkingAltelier" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Altelier" Relationship="Self.FK_Altelier_Department" FromRole="Department" ToRole="Altelier" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdAltelier" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Dorm" Type="Boolean" />
+    <Property Name="SecuSocial" Type="Boolean" />
+    <Property Name="HouseAccumulation" Type="Boolean" />
+    <Property Name="ExperiencedOfficial" Type="Boolean" />
+    <NavigationProperty Name="Altelier" Relationship="Self.FK_Employee_Altelier" FromRole="Employee" ToRole="Altelier" />
+    <NavigationProperty Name="Salary" Relationship="Self.FK_Salary_Employee" FromRole="Employee" ToRole="Salary" />
+  </EntityType>
+  <EntityType Name="ExternalFee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalaryId" Type="Int32" Nullable="false" />
+    <Property Name="DormFee" Type="Double" />
+    <Property Name="Reduction" Type="Double" />
+    <NavigationProperty Name="Salary" Relationship="Self.FK_ExternalFee_Salary" FromRole="ExternalFee" ToRole="Salary" />
+  </EntityType>
+  <EntityType Name="Revenue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="Revenue1" Type="Double" />
+  </EntityType>
+  <EntityType Name="Salary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="DayWorkingTime" Type="Double" Nullable="false" />
+    <Property Name="NightWorkingTime" Type="Double" Nullable="false" />
+    <Property Name="HolidayWorkingTime" Type="Double" Nullable="false" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="FixSalary" Type="Double" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Salary_Employee" FromRole="Salary" ToRole="Employee" />
+    <NavigationProperty Name="ExternalFee" Relationship="Self.FK_ExternalFee_Salary" FromRole="Salary" ToRole="ExternalFee" />
+  </EntityType>
+  <Association Name="FK_Altelier_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Altelier" Type="Self.Altelier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Altelier">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Altelier">
+    <End Role="Altelier" Type="Self.Altelier" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Altelier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="IdAltelier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Salary_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Salary" Type="Self.Salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Salary">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalFee_Salary">
+    <End Role="Salary" Type="Self.Salary" Multiplicity="1" />
+    <End Role="ExternalFee" Type="Self.ExternalFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salary">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExternalFee">
+        <PropertyRef Name="SalaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="managementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Altelier" EntityType="Self.Altelier" />
+    <EntitySet Name="Department" EntityType="Self.Department" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="ExternalFee" EntityType="Self.ExternalFee" />
+    <EntitySet Name="Revenue" EntityType="Self.Revenue" />
+    <EntitySet Name="Salary" EntityType="Self.Salary" />
+    <AssociationSet Name="FK_Altelier_Department" Association="Self.FK_Altelier_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Altelier" EntitySet="Altelier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Altelier" Association="Self.FK_Employee_Altelier">
+      <End Role="Altelier" EntitySet="Altelier" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salary_Employee" Association="Self.FK_Salary_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Salary" EntitySet="Salary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalFee_Salary" Association="Self.FK_ExternalFee_Salary">
+      <End Role="Salary" EntitySet="Salary" />
+      <End Role="ExternalFee" EntitySet="ExternalFee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
